@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/constants/app_spacing.dart';
@@ -32,7 +32,7 @@ class _ConverterPageState extends ConsumerState<ConverterPage> {
   @override
   Widget build(BuildContext context) {
     final settings = ref.watch(settingsProvider);
-    final strings = AppStrings(settings.language);
+    final strings = AppStrings(settings.state.language);
     final category = ConverterCatalog.categories[_categoryIndex];
     final value = double.tryParse(_input.text.replaceAll(',', '')) ?? 0;
     final converted = ConverterEngine.convert(
@@ -149,7 +149,7 @@ class _ConverterPageState extends ConsumerState<ConverterPage> {
                     child: Text(
                       '$formatted ${category.unit(_to).symbol}',
                       style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                            color: settings.accent,
+                            color: settings.state.accent,
                             fontWeight: FontWeight.w700,
                           ),
                     ),

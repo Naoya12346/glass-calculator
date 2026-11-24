@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/constants/app_spacing.dart';
@@ -6,7 +6,7 @@ import '../../calculator/providers/calculator_provider.dart';
 import '../../settings/data/settings_provider.dart';
 import '../../../core/constants/app_strings.dart';
 import '../../../core/widgets/glass_container.dart';
-import 'history_list.dart';
+import '../../../history/presentation/history_list.dart';
 
 Future<void> showHistorySheet(BuildContext context) {
   return showModalBottomSheet<void>(

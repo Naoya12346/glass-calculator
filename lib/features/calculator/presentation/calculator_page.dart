@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/constants/app_spacing.dart';
@@ -29,7 +29,7 @@ class _CalculatorPageState extends ConsumerState<CalculatorPage> {
   Widget build(BuildContext context) {
     final expression = ref.watch(expressionProvider);
     final settings = ref.watch(settingsProvider);
-    final strings = AppStrings(settings.language);
+    final strings = AppStrings(settings.state.language);
 
     return LayoutBuilder(
       builder: (context, constraints) {

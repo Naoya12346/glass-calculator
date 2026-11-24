@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 import 'dart:ui' show ImageFilter;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../constants/app_colors.dart';
 import '../constants/app_durations.dart';
@@ -98,7 +98,7 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
                     ),
                   ),
                   ImageFiltered(
-                    imageFilter: const ImageFilter.blur(sigmaX: 48, sigmaY: 48),
+                    imageFilter: ImageFilter.blur(sigmaX: 48, sigmaY: 48),
                     child: Stack(children: orbs),
                   ),
                 ],

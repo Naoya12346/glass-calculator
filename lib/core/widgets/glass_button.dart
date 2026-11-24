@@ -1,6 +1,4 @@
-import 'dart:ui' show FontFeature;
-
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../features/settings/data/settings_provider.dart';
@@ -42,7 +40,7 @@ class _GlassButtonState extends ConsumerState<GlassButton> {
   @override
   Widget build(BuildContext context) {
     final settings = ref.watch(settingsProvider);
-    final accent = settings.accent;
+    final accent = settings.state.accent;
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final foreground = _foreground(accent, isDark);
     final fill = _fill(accent, isDark);

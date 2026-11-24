@@ -338,11 +338,12 @@ class ExpressionEvaluator {
       case 'atan':
         return fromRadians(math.atan(value));
       case 'sinh':
-        return math.sinh(value);
+        return _checked((math.exp(value) - math.exp(-value)) / 2);
       case 'cosh':
-        return math.cosh(value);
+        return _checked((math.exp(value) + math.exp(-value)) / 2);
       case 'tanh':
-        return math.tanh(value);
+        final exp2 = math.exp(2 * value);
+        return _checked((exp2 - 1) / (exp2 + 1));
       case 'ln':
         if (value <= 0) {
           throw const CalculatorException(

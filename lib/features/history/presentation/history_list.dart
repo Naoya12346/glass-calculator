@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -27,7 +27,7 @@ class HistoryList extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final history = ref.watch(historyProvider);
     final settings = ref.watch(settingsProvider);
-    final strings = AppStrings(settings.language);
+    final strings = AppStrings(settings.state.language);
     final entries = history.filteredEntries;
     final dateFormat = DateFormat.yMMMd().add_Hm();
 

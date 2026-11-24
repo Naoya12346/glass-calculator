@@ -1,6 +1,4 @@
-import 'dart:ui' show FontFeature;
-
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../features/settings/data/settings_state.dart';
@@ -27,11 +25,11 @@ class AppTheme {
     final baseText = GoogleFonts.poppinsTextTheme();
     final textTheme = baseText.copyWith(
       displayLarge: baseText.displayLarge?.copyWith(
-        fontFeatures: <FontFeature>[FontFeature.tabularFigures()],
+        fontFeatures: const <FontFeature>[FontFeature.tabularFigures()],
         letterSpacing: -1.5,
       ),
       displayMedium: baseText.displayMedium?.copyWith(
-        fontFeatures: <FontFeature>[FontFeature.tabularFigures()],
+        fontFeatures: const <FontFeature>[FontFeature.tabularFigures()],
         letterSpacing: -1,
       ),
       headlineMedium: baseText.headlineMedium?.copyWith(fontWeight: FontWeight.w600),
@@ -58,7 +56,7 @@ class AppTheme {
       iconTheme: IconThemeData(
         color: isDark ? Colors.white : Colors.black87,
       ),
-      cardTheme: CardThemeData(
+      cardTheme: const CardThemeData(
         elevation: 0,
         color: Colors.transparent,
         shape: RoundedRectangleBorder(borderRadius: AppSpacing.cardRadius),
@@ -73,10 +71,10 @@ class AppTheme {
         thumbColor: accent,
         overlayColor: accent.withValues(alpha: 0.18),
       ),
-      pageTransitionsTheme: const PageTransitionsTheme(
+      pageTransitionsTheme: PageTransitionsTheme(
         builders: <TargetPlatform, PageTransitionsBuilder>{
           TargetPlatform.android: ZoomPageTransitionsBuilder(),
-          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+          TargetPlatform.iOS: ZoomPageTransitionsBuilder(),
         },
       ),
     );

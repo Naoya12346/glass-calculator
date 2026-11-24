@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'core/constants/app_durations.dart';
@@ -15,16 +15,16 @@ class CalculatorApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final settings = ref.watch(settingsProvider);
     final platformBrightness = MediaQuery.platformBrightnessOf(context);
-    final resolvedMode = settings.themeMode == AppThemeMode.system
+    final resolvedMode = settings.state.themeMode == AppThemeMode.system
         ? (platformBrightness == Brightness.dark
             ? AppThemeMode.dark
             : AppThemeMode.light)
-        : settings.themeMode;
+        : settings.state.themeMode;
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Glass Calculator',
-      theme: AppTheme.themeData(resolvedMode, settings.accent),
+      theme: AppTheme.themeData(resolvedMode, settings.state.accent),
       themeMode: resolvedMode == AppThemeMode.amoled ||
               resolvedMode == AppThemeMode.dark
           ? ThemeMode.dark

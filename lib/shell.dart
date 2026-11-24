@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'core/constants/app_durations.dart';
@@ -34,7 +34,7 @@ class _ShellState extends ConsumerState<Shell> {
   @override
   Widget build(BuildContext context) {
     final settings = ref.watch(settingsProvider);
-    final strings = AppStrings(settings.language);
+    final strings = AppStrings(settings.state.language);
 
     final pages = <Widget>[
       const CalculatorPage(),

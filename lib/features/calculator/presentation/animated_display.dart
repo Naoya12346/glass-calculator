@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 import 'dart:ui' show FontFeature;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -88,7 +88,7 @@ class _AnimatedDisplayState extends ConsumerState<AnimatedDisplay>
 
   Future<void> _showContextMenu(Offset position) async {
     final settings = ref.read(settingsProvider);
-    final strings = AppStrings(settings.language);
+    final strings = AppStrings(settings.state.language);
     final screen = MediaQuery.of(context).size;
     final selected = await showMenu<String>(
       context: context,
@@ -108,7 +108,7 @@ class _AnimatedDisplayState extends ConsumerState<AnimatedDisplay>
     );
     if (selected == 'copy') {
       final text = widget.preview != null
-          ? NumberTextFormatter.format(widget.preview!, settings)
+          ? NumberTextFormatter.format(widget.preview!, settings.state)
           : _controller.text;
       await Clipboard.setData(ClipboardData(text: text));
       if (context.mounted) {
@@ -130,7 +130,7 @@ class _AnimatedDisplayState extends ConsumerState<AnimatedDisplay>
     final settings = ref.watch(settingsProvider);
     final previewText = widget.preview == null
         ? ''
-        : NumberTextFormatter.format(widget.preview!, settings);
+        : NumberTextFormatter.format(widget.preview!, settings.state);
     final hasError = widget.error != null;
 
     return GestureDetector(
@@ -175,7 +175,7 @@ class _AnimatedDisplayState extends ConsumerState<AnimatedDisplay>
                       autofocus: false,
                       autocorrect: false,
                       enableSuggestions: false,
-                      cursorColor: settings.accent,
+                      cursorColor: settings.state.accent,
                       style: Theme.of(context).textTheme.displayMedium?.copyWith(
                             color: hasError
                                 ? Theme.of(context).colorScheme.error
@@ -214,7 +214,7 @@ class _AnimatedDisplayState extends ConsumerState<AnimatedDisplay>
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          color: settings.accent,
+                          color: settings.state.accent,
                           fontWeight: FontWeight.w600,
                           fontFeatures: <FontFeature>[
                             FontFeature.tabularFigures(),

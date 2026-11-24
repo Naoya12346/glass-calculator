@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -99,10 +99,10 @@ class _Keys {
   const _Keys._();
 
   static const String themeMode = 'settings.theme_mode';
-  static const String accent = 'settings.accent';
+  static const String accent = 'settings.state.accent';
   static const String haptics = 'settings.haptics';
   static const String sound = 'settings.sound';
   static const String precision = 'settings.precision';
   static const String numberFormat = 'settings.number_format';
-  static const String language = 'settings.language';
+  static const String language = 'settings.state.language';
 }

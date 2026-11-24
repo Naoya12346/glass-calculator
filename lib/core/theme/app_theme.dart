@@ -85,7 +85,7 @@ class AppTheme {
         overlayColor: accent.withValues(alpha: 0.18),
       ),
       pageTransitionsTheme: const PageTransitionsTheme(
-        builders: const <TargetPlatform, PageTransitionsBuilder>{
+        builders: <TargetPlatform, PageTransitionsBuilder>{
           TargetPlatform.android: ZoomPageTransitionsBuilder(),
           TargetPlatform.iOS: ZoomPageTransitionsBuilder(),
         },

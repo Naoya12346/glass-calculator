@@ -29,7 +29,7 @@ class ToolsPage extends ConsumerWidget {
               const TabBar(
                 isScrollable: true,
                 tabAlignment: TabAlignment.start,
-                tabs: const <Tab>[
+                tabs: <Tab>[
                   Tab(text: 'EMI'),
                   Tab(text: 'GST'),
                   Tab(text: 'Discount'),

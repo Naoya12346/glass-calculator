@@ -6,7 +6,7 @@ import '../../calculator/providers/calculator_provider.dart';
 import '../../settings/data/settings_provider.dart';
 import '../../../core/constants/app_strings.dart';
 import '../../../core/widgets/glass_container.dart';
-import '../../../history/presentation/history_list.dart';
+import '../../history/presentation/history_list.dart';
 
 Future<void> showHistorySheet(BuildContext context) {
   return showModalBottomSheet<void>(
@@ -23,7 +23,7 @@ Future<void> showHistorySheet(BuildContext context) {
         builder: (context, scrollController) {
           return Consumer(
             builder: (context, ref, _) {
-              final strings = AppStrings(ref.watch(settingsProvider).language);
+              final strings = AppStrings(ref.watch(settingsProvider).state.language);
               return Padding(
                 padding: const EdgeInsets.fromLTRB(
                   AppSpacing.md,

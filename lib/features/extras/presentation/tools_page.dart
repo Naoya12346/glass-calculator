@@ -14,7 +14,7 @@ class ToolsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final strings = AppStrings(ref.watch(settingsProvider).language);
+    final strings = AppStrings(ref.watch(settingsProvider).state.language);
     return DefaultTabController(
       length: 7,
       child: SingleChildScrollView(

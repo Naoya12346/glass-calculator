@@ -13,7 +13,7 @@ class HistoryPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final strings = AppStrings(ref.watch(settingsProvider).language);
+    final strings = AppStrings(ref.watch(settingsProvider).state.language);
 
     return Padding(
       padding: const EdgeInsets.all(AppSpacing.md),

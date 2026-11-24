@@ -130,7 +130,7 @@ class _HistoryTile extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final strings = AppStrings(
-      ref.watch(settingsProvider).language,
+      ref.watch(settingsProvider).state.language,
     );
 
     return Slidable(

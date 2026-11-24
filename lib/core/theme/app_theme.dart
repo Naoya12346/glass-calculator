@@ -22,19 +22,32 @@ class AppTheme {
           )
         : scheme;
 
-    final baseText = GoogleFonts.poppinsTextTheme();
-    final textTheme = baseText.copyWith(
-      displayLarge: baseText.displayLarge?.copyWith(
-        fontFeatures: const <FontFeature>[FontFeature.tabularFigures()],
+    const tabular = <FontFeature>[FontFeature.tabularFigures()];
+    final textTheme = TextTheme(
+      displayLarge: GoogleFonts.poppins(
+        fontSize: 72,
+        fontWeight: FontWeight.w300,
         letterSpacing: -1.5,
+        fontFeatures: tabular,
       ),
-      displayMedium: baseText.displayMedium?.copyWith(
-        fontFeatures: const <FontFeature>[FontFeature.tabularFigures()],
+      displayMedium: GoogleFonts.poppins(
+        fontSize: 60,
+        fontWeight: FontWeight.w400,
         letterSpacing: -1,
+        fontFeatures: tabular,
       ),
-      headlineMedium: baseText.headlineMedium?.copyWith(fontWeight: FontWeight.w600),
-      titleLarge: baseText.titleLarge?.copyWith(fontWeight: FontWeight.w600),
-      bodyLarge: baseText.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
+      headlineMedium: GoogleFonts.poppins(
+        fontSize: 34,
+        fontWeight: FontWeight.w600,
+      ),
+      titleLarge: GoogleFonts.poppins(
+        fontSize: 22,
+        fontWeight: FontWeight.w600,
+      ),
+      bodyLarge: GoogleFonts.poppins(
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
+      ),
     );
 
     return ThemeData(

@@ -110,7 +110,7 @@ class _GlassButtonState extends ConsumerState<GlassButton> {
                               widget.kind == GlassButtonKind.accent
                           ? FontWeight.w700
                           : FontWeight.w500,
-                      fontFeatures: <FontFeature>[
+                      fontFeatures: const <FontFeature>[
                         FontFeature.tabularFigures(),
                       ],
                     ),

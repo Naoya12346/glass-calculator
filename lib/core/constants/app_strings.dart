@@ -1,5 +1,3 @@
-import 'package:material_ui/material_ui.dart';
-
 import '../../features/settings/data/settings_state.dart';
 
 class AppStrings {

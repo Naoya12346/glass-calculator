@@ -1,5 +1,4 @@
 import 'dart:math' as math;
-import 'dart:ui' show FontFeature;
 
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
@@ -111,7 +110,7 @@ class _AnimatedDisplayState extends ConsumerState<AnimatedDisplay>
           ? NumberTextFormatter.format(widget.preview!, settings.state)
           : _controller.text;
       await Clipboard.setData(ClipboardData(text: text));
-      if (context.mounted) {
+      if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(strings.copied)),
         );
@@ -119,7 +118,7 @@ class _AnimatedDisplayState extends ConsumerState<AnimatedDisplay>
     } else if (selected == 'paste') {
       final data = await Clipboard.getData(Clipboard.kTextPlain);
       final text = data?.text;
-      if (text != null && text.isNotEmpty && context.mounted) {
+      if (text != null && text.isNotEmpty && mounted) {
         widget.onExpressionChanged(text);
       }
     }
@@ -180,7 +179,7 @@ class _AnimatedDisplayState extends ConsumerState<AnimatedDisplay>
                             color: hasError
                                 ? Theme.of(context).colorScheme.error
                                 : Theme.of(context).colorScheme.onSurface,
-                            fontFeatures: <FontFeature>[
+                            fontFeatures: const <FontFeature>[
                               FontFeature.tabularFigures(),
                             ],
                           ),
@@ -216,7 +215,7 @@ class _AnimatedDisplayState extends ConsumerState<AnimatedDisplay>
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
                           color: settings.state.accent,
                           fontWeight: FontWeight.w600,
-                          fontFeatures: <FontFeature>[
+                          fontFeatures: const <FontFeature>[
                             FontFeature.tabularFigures(),
                           ],
                         ),

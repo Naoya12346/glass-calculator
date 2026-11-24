@@ -49,7 +49,7 @@ class BasicKeypad extends StatelessWidget {
       builder: (context, constraints) {
         const columns = 4;
         const rows = 6;
-        final gap = AppSpacing.sm;
+        const gap = AppSpacing.sm;
         final cellWidth = (constraints.maxWidth - gap * (columns - 1)) / columns;
         final availableHeight =
             compact ? cellWidth : constraints.maxHeight - gap * (rows - 1);
@@ -122,7 +122,7 @@ class ScientificPad extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         const columns = 5;
-        final gap = AppSpacing.xs;
+        const gap = AppSpacing.xs;
         final cellWidth = (constraints.maxWidth - gap * (columns - 1)) / columns;
         final cellHeight = Responsive.clamp(cellWidth * 0.68, 44, 62);
         final fontSize = Responsive.clamp(cellHeight * 0.28, 11, 17);

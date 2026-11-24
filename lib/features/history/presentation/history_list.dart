@@ -45,7 +45,7 @@ class HistoryList extends ConsumerWidget {
                     hintText: strings.searchHistory,
                     prefixIcon: const Icon(Icons.search),
                     isDense: true,
-                    border: OutlineInputBorder(
+                    border: const OutlineInputBorder(
                       borderRadius: AppSpacing.pillRadius,
                     ),
                   ),
@@ -149,7 +149,7 @@ class _HistoryTile extends ConsumerWidget {
         ],
       ),
       child: ListTile(
-        shape: RoundedRectangleBorder(borderRadius: AppSpacing.cardRadius),
+        shape: const RoundedRectangleBorder(borderRadius: AppSpacing.cardRadius),
         onTap: onReuse,
         title: Text(
           entry.expression,

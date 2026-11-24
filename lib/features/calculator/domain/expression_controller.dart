@@ -111,9 +111,8 @@ class ExpressionController extends ChangeNotifier {
           _expression.substring(numberStart);
       _selection = cursor - 1;
     } else {
-      _expression = _expression.substring(0, numberStart) +
-          '-' +
-          _expression.substring(numberStart);
+      _expression =
+          '${_expression.substring(0, numberStart)}-${_expression.substring(numberStart)}';
       _selection = cursor + 1;
     }
     _clearError();

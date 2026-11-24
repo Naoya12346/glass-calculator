@@ -26,7 +26,7 @@ class ToolsPage extends ConsumerWidget {
             children: <Widget>[
               Text(strings.tools, style: Theme.of(context).textTheme.headlineMedium),
               const SizedBox(height: AppSpacing.md),
-              TabBar(
+              const TabBar(
                 isScrollable: true,
                 tabAlignment: TabAlignment.start,
                 tabs: const <Tab>[
